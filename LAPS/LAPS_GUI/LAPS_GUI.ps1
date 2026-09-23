@@ -291,7 +291,7 @@ Add-Type -AssemblyName PresentationFramework, System.Drawing, System.Windows.For
         </DataGrid>
         <Label x:Name="Label_Messages" Content="Messages" HorizontalAlignment="Left" Height="27" Margin="20,260,0,0" VerticalAlignment="Top" Width="137" FontWeight="Bold"/>
         <TextBox x:Name="Textbox_Messages" HorizontalAlignment="Left" Height="20" Margin="20,285,0,0" VerticalAlignment="Top" Width="470" FontSize="12"/>
-        <TextBlock x:Name="Textblock_Info" HorizontalAlignment="Left" Margin="20,340,0,0" TextWrapping="Wrap" Text="Windows LAPS Viewer by Christian Schindler, NTx BOCG, christian.schindler@ntx.at" VerticalAlignment="Top" Width="482"/>
+        <TextBlock x:Name="Textblock_Info" HorizontalAlignment="Left" Margin="20,340,0,0" TextWrapping="Wrap" Text="Windows LAPS by Henchman33" VerticalAlignment="Top" Width="482"/>
     </Grid>
 </Window>
 
