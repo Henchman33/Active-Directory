@@ -15639,7 +15639,7 @@ Function Initialize-ADReportForm {
     # --- Event Handler für Refresh und Copy Buttons ---
     if ($null -ne $Global:ButtonRefresh) {
         $ButtonRefresh.add_Click({
-            Write-ADReportLog -Message "Setze Query-Fenster zurück..." -Type Info
+            Write-ADReportLog -Message "Reset query window..." -Type Info
             try {
                 # Setze RadioButtons zurück
                 if ($Global:RadioButtonUser -and $Global:RadioButtonUser.GetType().GetProperty('IsChecked')) {
@@ -15677,7 +15677,7 @@ Function Initialize-ADReportForm {
                     $Global:DataGridResults.ItemsSource = $null
                 }
 
-                Write-ADReportLog -Message "Query-Fenster erfolgreich zurückgesetzt." -Type Info
+                Write-ADReportLog -Message "Query window successfully reset." -Type Info
             }
             catch {
                 Write-ADReportLog -Message "Fehler beim Zurücksetzen des Query-Fensters: $($_.Exception.Message)" -Type Error
@@ -15687,13 +15687,13 @@ Function Initialize-ADReportForm {
 
     if ($null -ne $Global:ButtonCopy) {
         $ButtonCopy.add_Click({
-            Write-ADReportLog -Message "Prüfe auf markierte Zeilen..." -Type Info
+            Write-ADReportLog -Message "Error resetting the query window..." -Type Info
             try {
                 # Prüfe ob Zeilen markiert sind
                 $selectedItems = $Global:DataGridResults.SelectedItems
                 
                 if ($selectedItems.Count -gt 0) {
-                    Write-ADReportLog -Message "Kopiere markierte Zeilen in die Zwischenablage..." -Type Info
+                    Write-ADReportLog -Message "Copy selected lines to the clipboard..." -Type Info
                     
                     # Konvertiere ausgewählte Zeilen in tabulierte Textform
                     $clipboardText = ""
@@ -15717,20 +15717,20 @@ Function Initialize-ADReportForm {
                     
                     # In Zwischenablage kopieren
                     [System.Windows.Clipboard]::SetText($clipboardText)
-                    Write-ADReportLog -Message "Markierte Zeilen erfolgreich in die Zwischenablage kopiert." -Type Info
+                    Write-ADReportLog -Message "Selected lines successfully copied to the clipboard.." -Type Info
                 }
                 else {
                     [System.Windows.MessageBox]::Show(
-                        "Bitte markieren Sie mindestens eine Zeile zum Kopieren.",
-                        "Keine Auswahl",
+                        "Selected lines successfully copied to the clipboard..",
+                        "No selection",
                         [System.Windows.MessageBoxButton]::OK,
                         [System.Windows.MessageBoxImage]::Information
                     )
-                    Write-ADReportLog -Message "Keine Zeilen markiert zum Kopieren." -Type Warning
+                    Write-ADReportLog -Message "No lines selected for copying." -Type Warning
                 }
             }
             catch {
-                Write-ADReportLog -Message "Fehler beim Kopieren in die Zwischenablage: $($_.Exception.Message)" -Type Error
+                Write-ADReportLog -Message "Error copying to clipboard: $($_.Exception.Message)" -Type Error
             }
         })
     }
