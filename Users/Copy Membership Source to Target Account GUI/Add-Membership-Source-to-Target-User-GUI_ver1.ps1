@@ -7,6 +7,7 @@ Import-Module ActiveDirectory
 # DOMAIN CONFIGURATION
 ###########################################################################
 
+# Edit Domain Map as needed 
 $DomainMap = @{
     "HQ"         = "avenge.com"
     "CCR"        = "superfriends.com"
